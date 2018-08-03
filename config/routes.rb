@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  # add route for all songs from an artist. EG: Nest resource
+  # add routes for all songs from an artist AND route for single song from artist.
   resources :artists do
-    resources :songs, only: [:index]
+    resources :songs, only: [:index, :show]
   end
 
   resources :songs
