@@ -2,7 +2,11 @@ class SongsController < ApplicationController
   def index
     if params[:artist]#if we are accessing all songs via artist routing
       #we want @songs = artist.songs (considering we access via songs: .artist_id vs artist.id)
-      @songs = Artist.find_by(params[:artist_id]).songs if Artist.find(params[:artist_id]) 
+      if Artist.find(params[:artist_id])
+        @songs = Artist.find_by(params[:artist_id]).songs 
+      else 
+        redirect_to artists_path 
+      end 
     else 
       @songs = Song.all
     end 
