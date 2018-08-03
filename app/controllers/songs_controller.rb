@@ -9,7 +9,10 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
+    if @song = Song.find(params[:id])
+      erb :show
+    else 
+      redirect_to :'artists/#{params[:artist_id]/songs}'
   end
 
   def new
