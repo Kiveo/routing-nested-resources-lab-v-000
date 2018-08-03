@@ -1,3 +1,5 @@
+require 'pry'
+
 class SongsController < ApplicationController
   def index
     if params[:artist_id]#if we are accessing all songs via artist routing
