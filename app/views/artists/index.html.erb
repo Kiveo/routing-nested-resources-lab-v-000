@@ -2,6 +2,7 @@
 <ul>
   <% @artists.each do |artist| %>
     <li><%= link_to artist.name, artist_path(artist) %></li>
-    <li><%= link_to 'Songs by artist', artist_songs_path %></li>
+    <!-- #Pass in object? -->
+    <li><%= link_to 'Songs by artist', artist_songs_path %></li> 
   <% end %>
 </ul>
