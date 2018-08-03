@@ -3,12 +3,12 @@ class SongsController < ApplicationController
     if params[:artist]#if we are accessing all songs via artist routing
       #we want @songs = artist.songs (considering we access via songs: .artist_id vs artist.id)
       @songs = Artist.find_by(params[:artist_id]).songs
-      rescue ActiveRecord::RecordNotFound
-      flash[:notice] = "Wrong song id"
-      redirect_to artists_path
     else 
       @songs = Song.all
     end 
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "Wrong song id"
+      redirect_to artists_path
   end
 
   def show
