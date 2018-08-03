@@ -17,13 +17,9 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    binding.pry 
-    if @song != nil 
-      @song = Song.find(params[:id])
-    else 
-      flash[:notice] = "Wrong song id"
-      redirect_to artist_songs_path
-    end
+    rescue ActiveRecord::RecordNotFound
+    flash[:notice] = "Song not found"
+    redirect_to artist_songs_path
   end
 
   def new
