@@ -13,6 +13,7 @@ class SongsController < ApplicationController
       erb :show
     else 
       redirect_to :'artists/#{params[:artist_id]/songs}'
+    end 
   end
 
   def new
