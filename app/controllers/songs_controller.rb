@@ -9,11 +9,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    if @song = Song.find(params[:id])
-      @song = Song.find(params[:id])
-    else 
-      redirect_to :'artists/#{params[:artist_id]/songs}'
-    end 
+    @song = Song.find(params[:id])
   end
 
   def new
