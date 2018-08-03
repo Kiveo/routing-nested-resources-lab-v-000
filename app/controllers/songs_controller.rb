@@ -8,6 +8,10 @@ class SongsController < ApplicationController
     end 
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   def show
     @song = Song.find(params[:id])
   end
