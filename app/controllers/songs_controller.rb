@@ -10,6 +10,7 @@ class SongsController < ApplicationController
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
+    redirect_to artists_path
   end
 
   def show
