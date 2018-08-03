@@ -17,9 +17,10 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-    flash[:notice] = "Song not found"
-    redirect_to artist_songs_path
+    if rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "Song not found"
+      redirect_to artist_songs_path
+    end 
   end
 
   def new
